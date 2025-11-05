@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'ITC Willow';
+  src: url('https://github.com/zdthorpe/BAHA-Map/blob/main/WILLOW__.TTF?raw=true') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   margin: 0;
   padding: 0;
@@ -17,7 +23,7 @@ h1 {
   margin: 0;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'ITC Willow', serif;
+  font-family: 'ITC Willow', Arial, Helvetica, sans-serif;
   font-size: 24px;
   color: #333;
 }
