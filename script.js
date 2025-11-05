@@ -9,7 +9,7 @@ const map = new mapboxgl.Map({
 map.on('load', function() {
     map.addSource('points-data', {
       type: 'geojson',
-      data: 'https://raw.githubusercontent.com/zdthorpe/BAHA-Map/refs/heads/main/data/183data.geojson'
+      data: 'https://raw.githubusercontent.com/zdthorpe/BAHA-Map/refs/heads/main/data/webmap.geojson'
     });
 
     map.addLayer({
@@ -30,9 +30,9 @@ map.on('load', function() {
 
             const popupContent = `
               <div>
-                  <h3>${properties.Landmark}</h3>
+                  <h3>${properties.Name}</h3>
                   <p><strong>Address:</strong> ${properties.Address}</p>
-                  <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                  <p><strong>Architect & Date:</strong> ${properties.Architect}</p>
                   <p><strong>Designated:</strong> ${properties.Designated}</p>
                   ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
                   ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
