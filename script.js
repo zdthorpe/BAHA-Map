@@ -17,7 +17,7 @@ map.on('load', function() {
         type: 'circle',
         source: 'points-data',
         paint: {
-            'circle-color': '#4264FB',
+            'circle-color': '#753300',
             'circle-radius': 6,
             'circle-stroke-width': 2,
             'circle-stroke-color': '#ffffff'
@@ -36,6 +36,7 @@ map.on('load', function() {
                   <p><strong>Designated:</strong> ${properties.Designated}</p>
                   ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
                   ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+                  <img src="${properties.Image}"></img>
               </div>
             `;
 
@@ -54,4 +55,19 @@ map.on('load', function() {
       map.getCanvas().style.cursor = '';
     });
 
+    // Show point name when hovering over points
+    map.on('mouseenter', 'points-layer', (e) => {
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const properties = e.features[0].properties;
+
+      popup
+        .setLngLat(coordinates)
+        .setHTML(`<h3>${properties.Name}</h3>`)
+        .addTo(map);
+    });
+
+    // Remove point name when not hovering over points
+    map.on('mouseleave', 'points-layer', (e) => {
+      popup.remove();
+    });
 });
